@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SData Base</title>
+    <style>
+      /* CSS styles for the list */
+      ol {
+        list-style: none;
+        counter-reset: li;
+        padding: 0;
+        margin: 0;
+      }
+      li::before {
+        content: counter(li) ".";
+        counter-increment: li;
+        margin-right: 0.5rem;
+        font-weight: bold;
+        color: #FF8C00;
+      }
+      li {
+        margin: 1rem 0;
+        padding: 0 0 0 2rem;
+        position: relative;
+        font-size: 1.1rem;
+      }
+      li::after {
+        content: "";
+        position: absolute;
+        top: 0.8rem;
+        left: 0;
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: #FF8C00;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Data</h1>
+    <ol>
+  {% block content %}
+
+{% for x in myData %}
+
+<ul> First Name is: {{ x.fName}} </ul>
+<ul>  Last Name is: {{ x.lName}} </ul>
+
+{% endfor %}
+
+{% endblock content %}
+    </ol>
+  </body>
+</html>
